@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Skincare Mistake Nobody Talks About — The Beauty Edit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1614;
+    --warm-white: #faf8f5;
+    --cream: #f2ede6;
+    --muted: #7a726b;
+    --copper: #b5713a;
+    --copper-light: #d4935a;
+    --copper-pale: #f5ece2;
+    --rule: #ddd5c8;
+    --highlight: #fffbf2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 17px;
+  }
+
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--warm-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .masthead-pub {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .masthead-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .masthead-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .article-header {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 56px 24px 36px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .article-category {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 20px;
+    display: block;
+  }
+  .article-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.12;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 22px;
+  }
+  .article-headline em {
+    font-style: italic;
+    color: var(--copper);
+  }
+  .article-deck {
+    font-size: 19px;
+    line-height: 1.55;
+    color: #3d3733;
+    font-weight: 300;
+    max-width: 640px;
+    margin-bottom: 28px;
+  }
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+  .byline-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4935a, #b5713a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .byline-name { font-weight: 500; font-size: 14px; }
+  .byline-meta { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+  .article-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 44px 24px 80px;
+  }
+  .article-body p { margin-bottom: 24px; color: #2a2420; }
+  .article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: 48px 0 20px;
+    line-height: 1.25;
+  }
+
+  .pull-quote {
+    border-left: 3px solid var(--copper);
+    margin: 40px 0;
+    padding: 20px 28px;
+    background: var(--copper-pale);
+    border-radius: 0 4px 4px 0;
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .stat-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 40px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .stat-item {
+    background: var(--highlight);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--copper);
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+  .product-card {
+    background: var(--ink);
+    border-radius: 6px;
+    padding: 32px 28px;
+    margin: 48px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: start;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle at top right, rgba(181,113,58,0.25), transparent 70%);
+  }
+  .product-card-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--copper-light);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .product-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 10px;
+  }
+  .product-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 20px;
+    line-height: 1.6;
+  }
+  .product-card-stars { color: var(--copper-light); font-size: 14px; margin-bottom: 18px; display: block; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--copper);
+    color: white;
+    padding: 13px 26px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .btn-primary:hover { background: var(--copper-light); }
+  .product-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    display: block;
+    text-align: right;
+    margin-bottom: 6px;
+  }
+  .product-price-label { font-size: 12px; color: rgba(255,255,255,0.45); text-align: right; display: block; margin-bottom: 16px; }
+  @media (max-width: 560px) {
+    .product-card { grid-template-columns: 1fr; }
+    .product-price, .product-price-label { text-align: left; }
+  }
+
+  .testimonial {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 26px 28px;
+    margin: 36px 0;
+    position: relative;
+  }
+  .testimonial::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    color: var(--rule);
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    line-height: 1;
+  }
+  .testimonial p {
+    font-size: 16px;
+    font-style: italic;
+    margin: 0 0 12px;
+    padding-left: 8px;
+    color: #2a2420;
+  }
+  .testimonial-source { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+  .mechanism-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 40px 0;
+  }
+  @media (max-width: 560px) { .mechanism-grid { grid-template-columns: 1fr; } }
+  .mechanism-card { border: 1px solid var(--rule); border-radius: 4px; padding: 24px 20px; background: white; }
+  .mechanism-card-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .mechanism-card h4 { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .mechanism-card p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.55; }
+  .mechanism-card.bad { border-color: #e8d5c8; background: #fdf8f4; }
+  .mechanism-card.good { border-color: var(--copper); background: var(--copper-pale); }
+  .mechanism-card.good h4 { color: var(--copper); }
+
+  .ornament { text-align: center; color: var(--rule); font-size: 18px; letter-spacing: 8px; margin: 48px 0; }
+
+  .guarantee-strip {
+    background: var(--copper-pale);
+    border: 1px solid #e0c9b0;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .guarantee-strip-icon { font-size: 32px; flex-shrink: 0; }
+  .guarantee-strip-text { font-size: 14px; color: #5a3e28; line-height: 1.5; margin: 0; }
+  .guarantee-strip-text strong { font-weight: 500; display: block; font-size: 15px; margin-bottom: 2px; }
+
+  .final-cta {
+    background: var(--ink);
+    border-radius: 6px;
+    padding: 48px 36px;
+    text-align: center;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center top, rgba(181,113,58,0.2), transparent 60%);
+  }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: clamp(24px, 3.5vw, 32px);
+    margin: 0 0 14px;
+    position: relative;
+  }
+  .final-cta p {
+    color: rgba(255,255,255,0.65);
+    font-size: 15px;
+    margin: 0 0 28px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .final-cta .btn-primary { font-size: 15px; padding: 16px 36px; position: relative; letter-spacing: 1px; }
+  .final-cta-sub { margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.35); position: relative; }
+
+  .disclaimer {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    padding: 24px;
+    border-top: 1px solid var(--rule);
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-pub">The Beauty Edit</div>
+  <div class="masthead-tag">Skincare · Wellness · Sleep</div>
+  <div class="masthead-label">Sponsored</div>
+</header>
+
+<div class="article-header fade-in">
+  <span class="article-category">Skincare Intelligence</span>
+  <h1 class="article-headline">
+    I Did Everything Right.<br>
+    <em>My Skin Still Broke Out.</em><br>
+    Then I Looked at My Pillowcase.
+  </h1>
+  <p class="article-deck">
+    Millions of women are spending hundreds of euros on serums, cleansers, and routines — then pressing their face against a bacterial breeding ground for eight hours every night. Here's the problem nobody in the skincare industry wants to admit.
+  </p>
+  <div class="byline">
+    <div class="byline-avatar">S</div>
+    <div>
+      <div class="byline-name">Sophie Laurent</div>
+      <div class="byline-meta">Contributing Editor, Skincare &amp; Wellness · 7 min read</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="fade-in">For three years, I was a devoted follower of the routine. Double cleanse. Vitamin C in the morning. Retinol on alternate nights. SPF 50, always. I had spreadsheets. I had a shelf that looked like a Sephora pop-up. And I had, persistently, inexplicably, the same breakouts — always on the left side of my jaw, always exactly where my face met the pillow.</p>
+
+  <p class="fade-in">I wasn't alone in this frustration. When I posted about it in a skincare forum, the responses were immediate and visceral.</p>
+
+  <div class="testimonial fade-in">
+    <p>I double-cleanse, layer my serums, and stick to the routine yet the pimples keep showing up.</p>
+    <span class="testimonial-source">— r/SkincareAddiction, 2024</span>
+  </div>
+
+  <p class="fade-in">The beauty industry has sold us an extraordinarily complete story about skincare. It begins in the morning with cleansing and ends at night with our final serum. What that story quietly omits is the eight hours that come afterward — pressed against fabric that has been accumulating sweat, oils, dead skin cells, and bacteria for days at a time.</p>
+
+  <h2 class="fade-in">The Number Nobody Puts on a Product Label</h2>
+
+  <div class="stat-block fade-in">
+    <div class="stat-item">
+      <span class="stat-num">3M+</span>
+      <span class="stat-label">Bacteria per cm² on an unwashed cotton pillowcase after just 3 nights</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">8hrs</span>
+      <span class="stat-label">Your face spends in direct contact with that surface — every single night</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">27×</span>
+      <span class="stat-label">Cotton's own weight it can absorb — including your expensive serum</span>
+    </div>
+  </div>
+
+  <p class="fade-in">Cotton is the silent saboteur. The same hydrophilic properties that make it feel soft and breathable make it function as a sponge for everything your skin produces overnight. The serum you applied before bed? A meaningful percentage wicked into the fabric before your skin could absorb it. The bacteria your cleanser worked to remove? Reintroduced from the pillowcase within the first hour of sleep.</p>
+
+  <div class="pull-quote fade-in">
+    <p>Your skincare routine ends when you close the cap on your moisturiser. The bacterial activity on your pillowcase doesn't.</p>
+  </div>
+
+  <p class="fade-in">This is not a niche concern. Dermatologists have a name for the specific pattern of inflammation caused by repeated friction and pressure against contaminated fabric: acne mechanica. It presents predictably — along the jawline, the cheek, the side of the face you predominantly sleep on. It doesn't respond well to topical treatment, because the source isn't internal. It's environmental, and it's renewed every single night.</p>
+
+  <h2 class="fade-in">Why Silk Was Supposed to Fix This — And Didn't</h2>
+
+  <p class="fade-in">The logical response to a bacterial cotton problem is to switch materials. The beauty press spent years convinced that silk was the answer. Silk pillowcases became a cultural moment. They seemed to make sense: less friction, cooler surface, premium feel.</p>
+
+  <div class="testimonial fade-in">
+    <p>Got Blissy mulberry silk pillowcases and my ears, jawline and cheekbone were absolutely covered in tiny bumps.</p>
+    <span class="testimonial-source">— r/30PlusSkinCare, 2024</span>
+  </div>
+
+  <div class="testimonial fade-in">
+    <p>Silk stuck to my skin, made me sweat and made the side of my jaw and chin break out.</p>
+    <span class="testimonial-source">— r/SkincareAddiction</span>
+  </div>
+
+  <p class="fade-in">The problem with silk is structural. It reduces friction, but does nothing about bacteria. In fact, because it traps heat against the skin more effectively than cotton, it can accelerate the very bacterial growth you're trying to escape. You end up sleeping on a warmer, more expensive version of the same problem.</p>
+
+  <div class="mechanism-grid fade-in">
+    <div class="mechanism-card bad">
+      <span class="mechanism-card-icon">🧵</span>
+      <h4>Cotton &amp; Silk</h4>
+      <p>Passive materials. Absorb moisture, oils, and bacteria. Provide zero antimicrobial protection. Require washing every 2–3 days to manage contamination.</p>
+    </div>
+    <div class="mechanism-card good">
+      <span class="mechanism-card-icon">⚡</span>
+      <h4>Copper-Infused Fabric</h4>
+      <p>Active antimicrobial mechanism. Copper ions continuously disrupt bacterial cell membranes. Works between washes. Permanently bonded into the fibre — doesn't wash out.</p>
+    </div>
+  </div>
+
+  <h2 class="fade-in">The Mechanism That Changes the Equation</h2>
+
+  <p class="fade-in">Copper has been used in medical settings for its antimicrobial properties for decades. Copper surfaces in hospitals reduce cross-contamination rates. The mechanism is well-documented: copper ions interfere with the cell membranes of bacteria, disrupting their ability to survive and reproduce.</p>
+
+  <p class="fade-in">When copper oxide is permanently bonded into textile fibres, this same mechanism operates continuously on the fabric surface. Unlike an antimicrobial wash treatment that fades, the copper is part of the structure of the yarn. It doesn't wash out. It doesn't degrade with use. The surface remains actively hostile to bacterial growth between laundry cycles — which is precisely the window where ordinary pillowcases become a problem.</p>
+
+  <p class="fade-in">Under EU Biocidal Products Regulation, copper (II) oxide's approval as an antimicrobial active substance extends through July 2029 — a regulatory validation of its mechanism that most fabric treatments simply don't have.</p>
+
+  <div class="pull-quote fade-in">
+    <p>It's not passive protection. It's an active process, running every night, for every hour your face is in contact with the surface.</p>
+  </div>
+
+  <h2 class="fade-in">What This Means for Your Routine</h2>
+
+  <p class="fade-in">Think about the actual architecture of a skincare routine. You cleanse. You treat. You moisturise. You get into bed. You spend the next eight hours in direct, sustained contact with a fabric surface. If that surface is ordinary cotton or silk, everything that follows your final step is, at best, neutral — and, at worst, actively working against the results you're trying to achieve.</p>
+
+  <p class="fade-in">A copper-infused pillowcase doesn't replace your routine. It extends it past the point where your routine stops. It makes the surface you sleep on part of your skincare infrastructure — rather than a variable that undermines it.</p>
+
+  <div class="testimonial fade-in">
+    <p>Cleared the last bit of acne I had left from the side I sleep on. I noticed my jawline acne seemed to be smaller than usual. I am really thrilled that I might have found a silver bullet.</p>
+    <span class="testimonial-source">— Verified purchase, Amazon</span>
+  </div>
+
+  <div class="product-card fade-in">
+    <div>
+      <span class="product-card-label">Featured Product</span>
+      <h3>Silkly Copper Pillowcase</h3>
+      <p>Copper-infused microfibre that actively reduces bacterial growth on the surface — every night, between every wash. EU BPR regulated. Permanent mechanism. Ships to UK &amp; Benelux.</p>
+      <span class="product-card-stars">★★★★★ 4.8 · 240+ reviews</span>
+      <a href="https://silkly.shop" class="btn-primary">Shop Silkly — silkly.shop →</a>
+    </div>
+    <div>
+      <span class="product-price">€59</span>
+      <span class="product-price-label">Free delivery</span>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:14px 16px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:20px;">🛡</span>
+        <p style="color:rgba(255,255,255,0.55);font-size:13px;margin:0;line-height:1.5;"><strong style="color:rgba(255,255,255,0.8);display:block;margin-bottom:2px;">60-Night Guarantee</strong>Clearer skin or your money back.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="fade-in">The women who report the most meaningful results from copper pillowcases are, almost without exception, the same ones who were already doing everything else correctly. The diligent ones. The ones frustrated precisely because their effort wasn't producing the results it should have — because there was a gap in the system that no serum could close.</p>
+
+  <p class="fade-in">The gap was always there. It was just eight hours of fabric.</p>
+
+  <div class="ornament fade-in">· · ·</div>
+
+  <h2 class="fade-in">What to Look For</h2>
+
+  <p class="fade-in">Not all copper-infused textiles are equivalent. The relevant factors are the concentration of copper oxide in the fibre, whether it's permanently bonded or surface-applied, and whether the brand can point to any regulatory or testing framework. Surface-applied treatments wash out. Permanently bonded copper oxide does not.</p>
+
+  <p class="fade-in">One brand worth examining is <strong>Silkly</strong>. Priced at €59, it sits at a considered mid-point — premium enough to signal clinical intent, accessible enough to be a genuine addition to a routine rather than a luxury purchase. The copper is bonded into the microfibre structure, and the mechanism falls within EU BPR regulatory scope for antimicrobial textiles.</p>
+
+  <p class="fade-in">The 60-night guarantee matters more than it might initially appear. It's results-based framing: if your skin doesn't respond, you aren't paying for it. For a product asking you to change something as fundamental as what you sleep on every night, that removes the friction of the decision entirely.</p>
+
+  <div class="guarantee-strip fade-in">
+    <div class="guarantee-strip-icon">🛡</div>
+    <p class="guarantee-strip-text">
+      <strong>Silkly 60-Night Skin Guarantee</strong>
+      Try it for two months. If you don't see a meaningful difference in skin clarity — particularly on the side you sleep on — return it for a full refund. No conditions.
+    </p>
+  </div>
+
+  <div class="final-cta fade-in">
+    <h2>Your Routine Deserves a Surface Worth Sleeping On</h2>
+    <p>Close the gap between your last skincare step and your morning skin. Silkly works while you sleep — every night, between every wash.</p>
+    <a href="https://silkly.shop" class="btn-primary">Get Silkly — €59 · Free Delivery</a>
+    <div class="final-cta-sub">60-Night Guarantee · EU Regulated Copper · Ships to UK &amp; Benelux</div>
+  </div>
+
+</div>
+
+<div class="disclaimer">
+  <strong>Disclosure:</strong> This article contains sponsored content produced in partnership with Silkly. Bacterial statistics cited from peer-reviewed textile and dermatology research. Silkly's copper-infused fabric reduces bacterial growth on the surface of the pillowcase; it does not treat, cure, or prevent any skin condition. EU BPR Copper (II) Oxide approval PT8 extended to July 2029. Individual results vary.
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
